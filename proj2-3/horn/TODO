@@ -1,0 +1,141 @@
+* Destructors for $... nodes.
+
+* Better names for generated rules?
+
+* Cut down on added whitespace?
+
+* Better whitespace for some rewrites (e.g. before "|" in A | B |
+  ...).
+
+* Better machinery for end of file and beginning of file.
+
+* Error actions?
+
+* Need better tree-forming outside of .hn files.
+
+* Better documentation for standard tree stuff in common-include.h.
+
+* Document YYDEFINE_LIST_TYPE.  Discuss proper handling of list_type values.
+
+* Document new methods in yysem.
+
+* Add the project boilerplate code for producing registered tree
+  classes to horn-common.h.
+
+DONE
+----
+
+[Latest first]   
+
+* Make post_make work for tokens.
+
+* Use #includes for more parts of the lexer/parser templates?
+
+* Restrict explicit %token declarations.
+
+* More uniform use of ref/unref, even at slight speed expense.
+
+* The use of NULL as a list value is a pain in other contexts. Fix.
+
+* Set differencing for tokens.   
+
+* Allow tree-node factories in framework.
+   
+* Better way to reference syntactic category of quoted nodes? [For now, just
+  allow explicit symbol definition.  GLR does not define yytoknum.]
+
+* Provide way to insert an operator that is not represented by a token
+   on the rhs (e.g., function call).   
+   
+* Provide better notation for explicit formation of tree nodes in actions.
+
+* Support interactive parsers.
+
+* Automate inclusion of simple-values.h?   
+
+* Allow multiple assignments.
+
+* More flexibility in placement of %... in rules?   
+
+* Reconsider _BOL: use /[\000-\177] pattern.
+
+* Convert lexical actions to allow assignment to $$ (yylval).
+
+* Do not allow named reference to LHS; use $$ instead.
+
+* Add methods to yysem (and YYPARAMS) for extracting locations, text.   
+
+* In *-parser.y, add more #line directives to get us back to the
+  generated .y at end of *.y file text.
+
+* Add %expand directive (as in 
+         exp ("+"^ | "y"^ | ... ) exp %expand
+  to allow use of precedence by converting this rhs into N through 
+  duplication.)
+
+* Repackage semantic parameters to framework better.
+
+* Add front end.
+
+* Fix -o parameter.
+
+* Better source-position facilities in framework.
+
+* #line directives for Bison output.
+
+* Proper error messages (with line numbers).
+
+* Namespaces or other encapsulation.
+
+* Definitions shared between lexer/parser.  E.g., how do I have a static
+  variable defined only for lexer?
+
+* #include lexer in parser to keep things more local.
+
+* Other features needed to implement Python INDENT/DEDENT.
+
+* Allow CR before LF to match _EOL.
+
+* Try to cut down on single-item lists.
+
+* Multiple input files, pushing and popping included files, etc.
+   
+* Ability to push tokens into token stream.
+
+* Don't need to save unreferenceable items in dictionaries (string
+  tokens, char tokens, redundant symbols).
+
+* Values stored in dictionaries must be properly ref'ed/deref'ed.
+
+* Shouldn't form generated-rule values when using explicit actions?
+
+* Anonymous lexical rules and nicer ways to set tokens in actions of such 
+  rules.
+
+* Filter out attempts at Unicode for now.
+
+* Special lexical tokens (_BOL, _EOL, etc.)
+
+* Flex has (silent) problems with \X and ill-formed \x constants, for 
+  some reason.  Filter out.
+
+* Semantics in lexical actions.
+
+* Node creation (^, !).
+
+* Refine release again: restrict to dictionaries.
+
+* Must consolidate identical extended operator definitions.
+
+* Consider appropriate values for ? nodes (new ?? operator?).
+
+* Documentation.
+
+* Extend yypush_lexer_file to strings.
+
+* Make stdin default input.
+
+* Allow better definition of different yyerror.
+
+* Allow "%token ','" without causing duplicate definitions?
+

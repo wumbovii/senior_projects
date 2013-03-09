@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   name=""
+   revision="9593"
+   last-author="cs164-cp"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj3/tests"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="9541"
+   kind="dir"
+   committed-date="2011-12-09T12:59:12.448569Z"/>
+<entry
+   name="correct3"
+   kind="dir"/>
+<entry
+   name="error3"
+   kind="dir"/>
+<entry
+   name="limitexec"
+   checksum="ee4bfcf6f6e389a79362e5f2879b50db"
+   last-author="hilfingr"
+   text-time="2011-11-25T10:58:56.000000Z"
+   committed-rev="7122"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"
+   prop-time="2011-12-04T22:55:52.000000Z"/>
+<entry
+   name="prologue"
+   checksum="050a8132e44aaddca15ce0b5464b34a1"
+   last-author="hilfingr"
+   committed-rev="7122"
+   text-time="2011-11-25T10:58:56.000000Z"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"/>
+<entry
+   name="test-proj1"
+   checksum="5723a80661665b8f57e36710fb6577f3"
+   last-author="hilfingr"
+   text-time="2011-11-25T10:58:56.000000Z"
+   committed-rev="7122"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"
+   prop-time="2011-12-04T22:55:52.000000Z"/>
+<entry
+   name="test-proj2"
+   checksum="416ffbb5986bacb95cb5342c5fad5729"
+   last-author="hilfingr"
+   text-time="2011-11-25T10:58:56.000000Z"
+   committed-rev="7122"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"
+   prop-time="2011-12-04T22:55:52.000000Z"/>
+<entry
+   name="test-proj3"
+   checksum="a829d1585177252d03189623fd4e955a"
+   last-author="cs164-cp"
+   committed-rev="9539"
+   text-time="2011-12-09T12:55:05.000000Z"
+   kind="file"
+   committed-date="2011-12-09T12:55:05.950188Z"
+   prop-time="2011-12-04T22:55:52.000000Z"/>
+</wc-entries>

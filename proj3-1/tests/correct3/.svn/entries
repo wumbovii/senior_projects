@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   name=""
+   revision="9593"
+   last-author="cs164-cp"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj3/tests/correct3"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="9541"
+   kind="dir"
+   committed-date="2011-12-09T12:59:12.448569Z"/>
+<entry
+   name="and1.py"
+   checksum="238560db881fb4f27da0179b25763d4c"
+   last-author="cs164-bn"
+   committed-rev="9477"
+   text-time="2011-12-09T10:22:13.000000Z"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+<entry
+   name="append.py"
+   checksum="8c309ca71317475caf3399a10e907ccf"
+   last-author="cs164-bn"
+   committed-rev="9437"
+   text-time="2011-12-09T09:14:44.000000Z"
+   kind="file"
+   committed-date="2011-12-09T09:14:44.413727Z"/>
+<entry
+   name="assignTrivial.py"
+   checksum="7feffc6669f9a71c4dec8a01bf9dcb11"
+   last-author="cs164-cp"
+   text-time="2011-12-05T08:44:10.000000Z"
+   committed-rev="8066"
+   kind="file"
+   committed-date="2011-12-05T08:44:10.853162Z"/>
+<entry
+   name="binop1.py"
+   checksum="ef8e119a493b49087451cf2eae637ff6"
+   last-author="cs164-bn"
+   text-time="2011-12-09T10:22:13.000000Z"
+   committed-rev="9477"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+<entry
+   name="break2.py"
+   checksum="c3fccc890abb9778285ccf8fd1990840"
+   last-author="cs164-bz"
+   committed-rev="9136"
+   text-time="2011-12-08T20:27:57.000000Z"
+   kind="file"
+   committed-date="2011-12-08T20:27:57.408126Z"/>
+<entry
+   name="compr1.py"
+   checksum="c744e31d75bd0f0b6b1cbdfc51fb0799"
+   last-author="cs164-cp"
+   committed-rev="9537"
+   text-time="2011-12-09T12:49:11.000000Z"
+   kind="file"
+   committed-date="2011-12-09T12:49:11.358096Z"/>
+<entry
+   name="comprhard.py"
+   checksum="52c7902655b1a42a3bd467ed5514ac91"
+   last-author="cs164-bn"
+   committed-rev="9477"
+   text-time="2011-12-09T10:22:13.000000Z"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+<entry
+   name="decltest.py"
+   checksum="8e2faf9653e823081d24e2e9b582e81a"
+   last-author="cs164-bz"
+   text-time="2011-12-07T03:40:44.000000Z"
+   committed-rev="8448"
+   kind="file"
+   committed-date="2011-12-07T03:40:44.402693Z"/>
+<entry
+   name="for1.py"
+   checksum="6f97adc61e3c0c2d69ed1fb5ec77b3e3"
+   last-author="cs164-bn"
+   committed-rev="9477"
+   text-time="2011-12-09T10:22:13.000000Z"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+<entry
+   name="function.py"
+   checksum="744f4f9bac4a6266d056c16eb33ef198"
+   last-author="cs164-cp"
+   committed-rev="9434"
+   text-time="2011-12-09T09:08:41.000000Z"
+   kind="file"
+   committed-date="2011-12-09T09:08:41.721705Z"/>
+<entry
+   name="if1.py"
+   checksum="3b6279e746be59d44700d416aca7b23d"
+   last-author="cs164-bn"
+   committed-rev="9477"
+   text-time="2011-12-09T10:22:13.000000Z"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+<entry
+   name="len1.py"
+   checksum="1f6abe6eb7e8703f9b9d69a205b8c139"
+   last-author="cs164-bz"
+   text-time="2011-12-08T05:45:06.000000Z"
+   committed-rev="8848"
+   kind="file"
+   committed-date="2011-12-08T05:45:06.805850Z"/>
+<entry
+   name="list1.py"
+   checksum="24ec16b6fb078b910d5b173fcf33b41b"
+   last-author="cs164-bn"
+   text-time="2011-12-09T10:27:07.000000Z"
+   committed-rev="9480"
+   kind="file"
+   committed-date="2011-12-09T10:27:07.080646Z"/>
+<entry
+   name="or1.py"
+   checksum="c23698c57b371e6d6367ef7cee549c05"
+   last-author="cs164-bz"
+   text-time="2011-12-08T05:45:06.000000Z"
+   committed-rev="8848"
+   kind="file"
+   committed-date="2011-12-08T05:45:06.805850Z"/>
+<entry
+   name="trivial.in"
+   checksum="f89ed2d1896844d5628d5bfd8bb0574e"
+   last-author="hilfingr"
+   committed-rev="7122"
+   text-time="2011-11-25T10:58:56.000000Z"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"/>
+<entry
+   name="trivial.py"
+   checksum="8c40bb3d8179fc0afdc63cb1b43f3721"
+   last-author="hilfingr"
+   committed-rev="7122"
+   text-time="2011-11-25T10:58:56.000000Z"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"/>
+<entry
+   name="trivial.std"
+   checksum="746308829575e17c3331bbcb00c0898b"
+   last-author="hilfingr"
+   committed-rev="7122"
+   text-time="2011-11-25T10:58:56.000000Z"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"/>
+<entry
+   name="unary1.py"
+   checksum="215f0756324eb918dbb72eea29804997"
+   last-author="cs164-bn"
+   committed-rev="9477"
+   text-time="2011-12-09T10:22:13.000000Z"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+<entry
+   name="while1.py"
+   checksum="b65f4412f2be7fc81e633f392a03d00c"
+   last-author="cs164-bn"
+   committed-rev="9477"
+   text-time="2011-12-09T10:22:13.000000Z"
+   kind="file"
+   committed-date="2011-12-09T10:22:13.580773Z"/>
+</wc-entries>

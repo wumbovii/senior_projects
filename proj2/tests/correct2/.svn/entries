@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="5345"
+   last-author="cs164-bn"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/tests/correct2"
+   committed-rev="5202"
+   kind="dir"
+   committed-date="2011-11-06T08:57:51.753452Z"/>
+<entry
+   name="decl_interleaved.py"
+   checksum="a99eb01d1bdd94666366eb73cb24fb30"
+   last-author="cs164-bz"
+   text-time="2011-11-05T19:15:49.000000Z"
+   committed-rev="5099"
+   kind="file"
+   committed-date="2011-11-05T19:15:49.470082Z"/>
+<entry
+   name="decl_samevarnames.py"
+   checksum="1444af065566b9713f5c2c906067c012"
+   last-author="cs164-bz"
+   text-time="2011-11-05T19:15:49.000000Z"
+   committed-rev="5099"
+   kind="file"
+   committed-date="2011-11-05T19:15:49.470082Z"/>
+<entry
+   name="decl_selfinstances.py"
+   checksum="f0a154c571f1658b0472b253fb2c4864"
+   last-author="cs164-bz"
+   text-time="2011-11-05T19:29:45.000000Z"
+   committed-rev="5103"
+   kind="file"
+   committed-date="2011-11-05T19:29:45.580004Z"/>
+<entry
+   name="decl_simple.py"
+   checksum="b6f844863ffbceaa35a2f1336d3ae782"
+   last-author="cs164-bz"
+   text-time="2011-11-05T19:15:49.000000Z"
+   committed-rev="5099"
+   kind="file"
+   committed-date="2011-11-05T19:15:49.470082Z"/>
+<entry
+   name="nestedLambda.py"
+   checksum="219cd89e64b0e5aaf8ae33f6339bd57d"
+   last-author="cs164-cp"
+   committed-rev="4884"
+   text-time="2011-11-03T23:18:28.000000Z"
+   kind="file"
+   committed-date="2011-11-03T23:18:28.837376Z"/>
+<entry
+   name="testAllocator.py"
+   checksum="ab0d700edd1285c067e399c209396a91"
+   last-author="cs164-bn"
+   text-time="2011-11-03T11:23:51.000000Z"
+   committed-rev="4872"
+   kind="file"
+   committed-date="2011-11-03T11:23:51.488281Z"/>
+<entry
+   name="testAllocator2.py"
+   checksum="06a6eacc5189474a048447ef67ea1afc"
+   last-author="cs164-bn"
+   text-time="2011-11-03T11:23:51.000000Z"
+   committed-rev="4872"
+   kind="file"
+   committed-date="2011-11-03T11:23:51.488281Z"/>
+<entry
+   name="testAllocator3.py"
+   checksum="d6e1418d5a985af1d3921005cd1dba3d"
+   last-author="cs164-bn"
+   text-time="2011-11-03T11:23:51.000000Z"
+   committed-rev="4872"
+   kind="file"
+   committed-date="2011-11-03T11:23:51.488281Z"/>
+<entry
+   name="testAllocator4.py"
+   checksum="9188dcf464c244d83e81e386fee442b5"
+   last-author="cs164-bn"
+   text-time="2011-11-03T11:23:51.000000Z"
+   committed-rev="4872"
+   kind="file"
+   committed-date="2011-11-03T11:23:51.488281Z"/>
+<entry
+   name="testAllocator5.py"
+   checksum="84aeb0135aff863a6b93fec70aa89c00"
+   last-author="cs164-bn"
+   text-time="2011-11-03T11:23:51.000000Z"
+   committed-rev="4872"
+   kind="file"
+   committed-date="2011-11-03T11:23:51.488281Z"/>
+<entry
+   name="testDeclare.py"
+   checksum="d0261f6005ff4d3698eb33220903942f"
+   last-author="cs164-bn"
+   text-time="2011-11-05T22:56:36.000000Z"
+   committed-rev="5123"
+   kind="file"
+   committed-date="2011-11-05T22:56:36.491361Z"/>
+<entry
+   name="testDeclare2.py"
+   checksum="347e533dc5e8bf45bf7ca3af28b11559"
+   last-author="cs164-bn"
+   text-time="2011-11-05T22:56:36.000000Z"
+   committed-rev="5123"
+   kind="file"
+   committed-date="2011-11-05T22:56:36.491361Z"/>
+<entry
+   name="testDeclare3.py"
+   checksum="306f5b3781f922e0a1f143c88e8ecf78"
+   last-author="cs164-bn"
+   text-time="2011-11-05T22:56:36.000000Z"
+   committed-rev="5123"
+   kind="file"
+   committed-date="2011-11-05T22:56:36.491361Z"/>
+<entry
+   name="testDeclare4.py"
+   checksum="1a626c72e04a5854342ebb8c0996ad9a"
+   last-author="cs164-bn"
+   text-time="2011-11-06T05:34:10.000000Z"
+   committed-rev="5164"
+   kind="file"
+   committed-date="2011-11-06T05:34:10.642909Z"/>
+<entry
+   name="testDeclare5.py"
+   checksum="5645fa64f2b313855c7a0717f6055d3c"
+   last-author="cs164-bn"
+   text-time="2011-11-06T06:55:31.000000Z"
+   committed-rev="5178"
+   kind="file"
+   committed-date="2011-11-06T06:55:31.847138Z"/>
+<entry
+   name="testDeclare6.py"
+   checksum="830e36f0421fa3f3454138bfad740a97"
+   last-author="cs164-bn"
+   committed-rev="5202"
+   text-time="2011-11-06T08:57:51.000000Z"
+   kind="file"
+   committed-date="2011-11-06T08:57:51.753452Z"/>
+<entry
+   name="testLambda.py"
+   checksum="c5759c4c1ccf5f77055d9620e1bf9431"
+   last-author="cs164-cp"
+   text-time="2011-11-03T06:36:55.000000Z"
+   committed-rev="4812"
+   kind="file"
+   committed-date="2011-11-03T06:36:55.034655Z"/>
+<entry
+   name="testLambda2.py"
+   checksum="059314577d36e66f18c3aa817d9a8dd0"
+   last-author="cs164-bn"
+   text-time="2011-11-03T10:38:11.000000Z"
+   committed-rev="4868"
+   kind="file"
+   committed-date="2011-11-03T10:38:11.092661Z"/>
+<entry
+   name="testLambda3.py"
+   checksum="6596ada3f15b6db47e14898c649a0e6a"
+   last-author="cs164-bn"
+   text-time="2011-11-03T10:45:42.000000Z"
+   committed-rev="4870"
+   kind="file"
+   committed-date="2011-11-03T10:45:42.868907Z"/>
+<entry
+   name="trivial.in"
+   checksum="f89ed2d1896844d5628d5bfd8bb0574e"
+   last-author="hilfingr"
+   text-time="2011-10-22T02:08:42.000000Z"
+   committed-rev="4270"
+   kind="file"
+   committed-date="2011-10-22T02:08:42.334864Z"/>
+<entry
+   name="trivial.py"
+   checksum="ee8d6651cc90a0f69f8c5b311ae28dc2"
+   last-author="cs164-bn"
+   committed-rev="5178"
+   text-time="2011-11-06T06:55:31.000000Z"
+   kind="file"
+   committed-date="2011-11-06T06:55:31.847138Z"/>
+<entry
+   name="trivial.std"
+   checksum="d41d8cd98f00b204e9800998ecf8427e"
+   last-author="hilfingr"
+   text-time="2011-10-22T02:08:42.000000Z"
+   committed-rev="4270"
+   kind="file"
+   committed-date="2011-10-22T02:08:42.334864Z"/>
+</wc-entries>

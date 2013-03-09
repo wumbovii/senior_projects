@@ -1,0 +1,48 @@
+                                 
+1.  id+=x            ->  id'=x    &   add id.add (id') to first action.
+2.  ( x )            ->  x   (in the trivial case)
+3.  ( x )            ->  X        &   for new X, add to rules:
+      		     	 	         X : x { $$ = <defns>;  
+					         transfer rhs values to $$ in 
+						    postorder.
+					       }
+4.  x*               ->  X        &   for new X, add to rules:
+                                        X : /*empty*/ { $$ = <defns>; 
+					              }
+				          | X x to    { $$ = $1;
+					                transfer rhs values 
+							  of x to $1;
+						      }
+5.  x+               ->  X        &   for new X, add to rules:
+    		     	 	        X : x 	      { $$ = <defns>; 
+							add values of x to
+							    semantic value;
+					              }
+                                          | X x       { as for x*, above }
+6.  x?               ->  X        &   for new X, add to rules:
+                                        X : /*empty*/ { as for x*, above }
+                                          | x         { as for x+, above }
+
+
+<defns>:  '$$ = make_defns (N)'. 
+
+--------------------------------------------------
+
+Augment %union with entries
+
+	SymbolDefns* Symbols;
+	NodeType* Val;
+
+--------------------------------------------------
+
+Convert actions to use $n arguments for everything.  Convert LHS assignments
+to special value in defns in inner rule, else to $$.  
+
+Augment action for each outer rule to release all defns and transfer 
+LHS value appropriately.  SymbolDefns set up in such a fashion that releasing
+one releases all subsequent ones.
+
+-------------------------------------------------
+
+A synthesized rule is semantically context-sensitive if it references defns
+in enclosing RHS.  Memoize only semantically context-insensitive rules.

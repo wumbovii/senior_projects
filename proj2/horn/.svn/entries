@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   name=""
+   revision="5345"
+   last-author="cs164-cp"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/horn"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="4671"
+   kind="dir"
+   committed-date="2011-11-02T23:32:16.130573Z"/>
+<entry
+   name=".gdbinit"
+   checksum="47ae5c6e0c0824175c0642d48251458f"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="Makefile.in"
+   checksum="9d0c124bff8fca63079003a1b33e0920"
+   last-author="hilfingr"
+   committed-rev="710"
+   text-time="2011-09-14T08:31:21.000000Z"
+   kind="file"
+   committed-date="2011-09-14T08:31:21.376733Z"/>
+<entry
+   name="README"
+   checksum="522b839a861dc59d6cd846acd61f1191"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="TODO"
+   checksum="f517808064318f1a5943829e89bdfa2d"
+   last-author="hilfingr"
+   committed-rev="1105"
+   text-time="2011-09-24T02:49:55.000000Z"
+   kind="file"
+   committed-date="2011-09-24T02:49:55.959255Z"/>
+<entry
+   name="VERSION"
+   checksum="1d4d4e6130c517bacccc8b8dd87baf4b"
+   last-author="hilfingr"
+   committed-rev="4104"
+   text-time="2011-10-10T06:05:16.000000Z"
+   kind="file"
+   committed-date="2011-10-10T06:05:16.466471Z"/>
+<entry
+   name="analysis"
+   kind="dir"/>
+<entry
+   name="configure"
+   checksum="f11ad3671380e25ccbbd8e313cdaacc8"
+   last-author="hilfingr"
+   text-time="2011-09-14T00:22:39.000000Z"
+   committed-rev="583"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"
+   prop-time="2011-11-03T04:02:26.000000Z"/>
+<entry
+   name="data"
+   kind="dir"/>
+<entry
+   name="doc"
+   kind="dir"/>
+<entry
+   name="horn.h"
+   checksum="fe654a7df51251f8ca1e70e36cdc9c9a"
+   last-author="hilfingr"
+   committed-rev="2542"
+   text-time="2011-10-03T07:04:42.000000Z"
+   kind="file"
+   committed-date="2011-10-03T07:04:42.981002Z"/>
+<entry
+   name="horn.in"
+   checksum="0ab94fe41e77eaed576c9602e6418e9d"
+   last-author="hilfingr"
+   text-time="2011-09-14T00:22:39.000000Z"
+   committed-rev="583"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"
+   prop-time="2011-11-03T04:02:33.000000Z"/>
+<entry
+   name="lang-specific.cc"
+   checksum="5d91fa47b40614aaa8243452915aa17e"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="nodes.cc"
+   checksum="528d14730b5c69134ecbcdd0f6088e3f"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="parse-horn.y"
+   checksum="8d25abd9720166fb55d9ac77dd700b73"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="plans"
+   checksum="5873d5c0b2505ce05d8e0a0adc52f65a"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="process-cfg.cc"
+   checksum="6ac5c194654f40f9e6db3bc0662108ab"
+   last-author="hilfingr"
+   committed-rev="2542"
+   text-time="2011-10-03T07:04:42.000000Z"
+   kind="file"
+   committed-date="2011-10-03T07:04:42.981002Z"/>
+<entry
+   name="process-lexical.cc"
+   checksum="684bf6153020339f71d06aa565c230cf"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="scan-action.l"
+   checksum="1e4f6ef0ca3046fd6197630e701f776e"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="scan-horn.l"
+   checksum="26171aecdf38fb18f6906cbc1d3db01a"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="tests"
+   kind="dir"/>
+<entry
+   name="text_buffer.cc"
+   checksum="d5ca8877e4907f9c39f940a85cb6f8f1"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="util.cc"
+   checksum="0b01c4b7d8accf7acbd62b5a53340e8f"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="xalloc.h"
+   checksum="d546ef6d91ae618e44655b886a7e939b"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="xmalloc.cc"
+   checksum="c4ebb265348f7b67b4fc2f60a4acf2c3"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+</wc-entries>

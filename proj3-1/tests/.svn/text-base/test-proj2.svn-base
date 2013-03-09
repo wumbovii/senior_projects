@@ -1,0 +1,271 @@
+#!/usr/bin/env python
+
+# Test compiler against suite of Python programs.  Requires that pyunparse be
+# on the path.
+
+import os, sys, re
+from subprocess import Popen, PIPE
+from getopt import getopt, GetoptError
+
+def Usage():
+    print '''
+Usage: test-proj2 [ --errors ] [ --compiler=COMPILER ] \\
+                  [ --retain ] [ --show=M ] \\
+                  [ --show-errors ] DIR/BASE.py ...
+    Runs COMPILER (default ./apyc) on each DIR/BASE.py with the command
+        COMPILER --phase=2 -o BASE.EXT PROGRAM-FILE
+
+    In the absence of the --errors option, unparses the result into a 
+    Python program BASE-2.py, and then runs python on that program.  If 
+    there is a file DIR/BASE.in, uses that as the standard input.  Otherwise,
+    uses the empty file for the standard input.  Compares the output
+    to file DIR/BASE.std, if that is present, and otherwise just
+    checks that the python interpreter exits normally.  If there is a file
+    DIR/BASE.dcls, compares it with result of pyunparse --canonical.  If there
+    is a file DIR/BASE.types, takes it to be a set of canonical decls, and
+    looks for all canonical decls in the tested program that match any
+    of the identifiers in the .types file, and compares them, ignoring
+    everthing but type and declaration type (FUNC, PARAM, GLOBAL, LOCAL,
+    CONST).
+
+    Retains .dast files if --retain.
+
+    With the --errors option, checks that the compiler exits with a
+    non-zero exit code and that stderr contains at least one error message
+    in the correct format.  Does not unparse the resulting AST or execute
+    the Python interpreter.  Shows the error messages if --show-errors.
+
+    With the --show option, outputs up to M source file(s) that cause errors.
+
+    Reports results and exits with 0 if there are no errors, and
+    with 1 otherwise.'''
+
+def Run(command, *args, **keys):
+    if args:
+        command = command % args
+    if verbose:
+        print >>sys.stderr, command
+    proc = Popen (command, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    out, err = proc.communicate(keys.get ('stdin', ''))
+    return proc.returncode, out, err
+
+def Remove(file):
+    try:
+        os.unlink(file)
+    except OSError:
+        pass
+
+def Contents(file):
+    try: 
+        f = open(file)
+        r = f.read()
+        f.close()
+        return r
+    except:
+        return ""
+
+def Compile(prog, ast):
+    global Stdout, Stderr, Code
+    Code, Stdout, Stderr = Run("%s --phase=2 -o %s %s",
+                               compiler, ast, prog)
+    return Code == 0
+
+def Unparse(ast, python, prologue):
+    code, out, err = Run("pyunparse --remove-extensions --alpha %s",
+                         ast)
+    outpy = open(python, "w")
+    prefix = Contents (prologue)
+    if prefix:
+        outpy.write(prefix)
+    outpy.write(out)
+    outpy.close()
+    return code == 0
+
+def UnparseDecls(ast):
+    global Stdout, Stderr
+    code, Stdout, Stderr = \
+          Run(r"pyunparse --canonical --no-print %s | sed 's/ *\[[0-9]*\]$//'",
+              ast)
+    return code == 0
+
+def Execute(prog, inp):
+    global Stdout, Stderr
+    code, Stdout, Stderr = Run("%s/limitexec python -W ignore %s",
+                               mydir, prog, stdin=inp)
+    return code == 0
+
+def HasError(errout):
+    return re.search (r'(?m)^[^:]+\.py:\d+:\s*\S', errout)
+
+def IsCrash(code):
+    return code >= 128
+
+def typeSet(f, restriction=None):
+    def reduction(x):
+        n = [1]
+        vars = {}
+        def subst(x):
+            if x not in vars:
+                v = "$_%d" % (n[0],)
+                n[0] += 1
+                vars[x] = v
+            return vars[x]
+
+        mat = re.match(r'\s*\d+\.\s*((\S+): (?:GLOBAL|FUNC|LOCAL|CONST|INSTANCE)|PARAM:\s+(\S+))'
+                       r'\s+(?:[\d\s]*)(.*?)\s*\(\d+ refs\)', x)
+        if mat:
+            reduced = re.sub(r'\$[_0-9a-zA-Z]*', subst, 
+                             (mat.group(1) + " " + mat.group(4)).strip())
+            return reduced, mat.group(2) or mat.group(3)
+        else:
+            return None, None
+
+    foundTypes = set([])
+    for line in re.split(r'\n', f):
+        r, id = reduction(line)
+        if r and (restriction is None or id in restriction):
+            foundTypes.add(r)
+    return foundTypes
+
+def typeSetIds(s):
+    result = set([])
+    for decl in s:
+        mat = re.match(r'(\S+): (?:GLOBAL|FUNC|LOCAL|CONST|INSTANCE)|PARAM:\s+(\S+)', decl)
+        if mat:
+            result.add(mat.group(1) or mat.group(2))
+        else:
+            print >>sys.stderr, "Bad entry in set:", decl
+    return result
+
+def sameTypes(std, testResult):
+    stdTypes = typeSet(std)
+    ids = typeSetIds(stdTypes)
+    return stdTypes == typeSet(testResult, ids)
+
+try:
+    opts, tests = getopt (sys.argv[1:], 'hv',
+                          ['help', 'retain', 'errors', 'compiler=',
+                           'prologue=', 'show=', 'show-errors', 'verbose'])
+except GetoptError:
+    Usage()
+    sys.exit(1)
+
+mydir = (os.path.dirname (sys.argv[0]) or '.')
+
+compiler = './apyc'
+errors = False
+retain = False
+show = None
+verbose = False
+show_errors = False
+prologue = "/dev/null"
+
+for opt, val in opts:
+    if opt in ( '-h', '--help' ):
+        Usage()
+        sys.exit(0)
+    elif opt == '--errors':
+        errors = True
+    elif opt == '--compiler':
+        compiler = val
+    elif opt == '--retain':
+        retain = True
+    elif opt == '--prologue':
+        prologue = val
+    elif opt == '--show':
+        show = int(val)
+    elif opt == '--show-errors':
+        show_errors = True
+    elif opt in ['-v', '--verbose']:
+        verbose = True
+
+N = 0
+OK = 0
+
+for f in tests:
+    N += 1
+    dir, file = os.path.split(f)
+    base, dummy = os.path.splitext(file)
+    print base + ".py:",
+
+    ast = base + ".dast"
+    if errors:
+        if Compile(f, ast):
+            msg = "FAIL (wrong compiler exit code)"
+        elif IsCrash (Code):
+            msg = "FAIL (crash)"
+        elif HasError (Stderr):
+            msg = "OK"
+        else:
+            msg = "FAIL (bad compiler error messages)"
+        if show_errors:
+            print
+            print '   ', re.sub (r'\n', r'\n    ', Stderr.strip())
+        if not retain:
+            Remove(ast)
+    else:
+        prog2 = base + "-2.py"
+        inp = os.path.join(dir, base + ".in")
+        std = Contents (os.path.join(dir, base + ".std"))
+        declStd = Contents (os.path.join(dir, base + ".dcls"))
+        typeStd = Contents (os.path.join(dir, base + ".types"))
+        if not Compile(f, ast):
+            msg = "FAIL (wrong compiler exit code)"
+        elif Stderr:
+            msg = "FAIL (compiler error messages)"
+        elif not Unparse(ast, prog2, prologue):
+            msg = "FAIL (bad AST)"
+        elif not Execute(prog2, Contents(inp)):
+            msg = "FAIL (execution error)"
+            
+        elif Stderr:
+            msg = "FAIL (error output on execution)"
+        elif std and std != Stdout:
+            msg = "FAIL (wrong output)"
+        elif (declStd or typeStd) and not UnparseDecls(ast):
+            msg = "FAIL (error producing decls)"
+        elif declStd and declStd != Stdout:
+            msg = "FAIL (wrong decls)"
+        elif typeStd and not sameTypes(typeStd, Stdout):
+            msg = "FAIL (wrong types)"
+        else:
+            msg = "OK"
+        if not retain:
+            Remove(prog2)
+            Remove(ast)
+
+    print msg
+    sys.stdout.flush()
+    if msg == "OK":
+        OK += 1
+    elif show:
+        print "Python source that caused this problem (%s):" % file
+        print "-" * 50
+        sys.stdout.write (Contents(f))
+        print "-" * 50
+        print
+        if not errors and declStd:
+            print "We were expecting the following canonicalized decls:"
+            print "-" * 50
+            sys.stdout.write(declStd)
+            print "-" * 50
+        if not errors and typeStd:
+            print """\
+We were expecting (at least) the following set of type ascriptions, ignoring
+numbering, line or parameter numbers, and cross-reference data:
+---------"""
+            sys.stdout.write(typeStd)
+            print "---------"
+        show -= 1
+    elif show is 0:
+        print "  [Source file not shown: exceeded limit on number of files to display.]"
+
+print
+print "Ran %d tests." % N,
+if OK == N:
+    print "All passed."
+    sys.exit(0)
+else:
+    print "%d failed." % (N - OK)
+    sys.exit(1)
+

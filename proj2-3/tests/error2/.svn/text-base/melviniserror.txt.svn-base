@@ -1,0 +1,3371 @@
+
+FILENAME: ignoreImport2.py
+
+ CODE:
+import meow from lolcat
+
+class foo(Object):
+    pass
+
+
+COMMAND OUTPUT
+
+
+FILENAME: testDeclare.py
+
+ CODE:
+#assign to None >_>
+None = 4
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+FILENAME: testDeclare2.py
+
+ CODE:
+#assign to True
+True = "hi"
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+FILENAME: testDeclare3.py
+
+ CODE:
+#assign to False 
+False = "rofl"
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+FILENAME: testDeclare4.py
+
+ CODE:
+#a def declaration already assigned to a variable
+#the def declaration should error, by 6.5 in specs
+#legal in python, but not for our specs
+def x(y):
+    def y():
+        print "lol"
+    y()
+
+x(3)
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+PARAM SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+error in creating def declaration
+
+FILENAME: testDeclare5.py
+
+ CODE:
+#a class declaration already assigned to a variable
+#the class declaration should error, by 6.5 in specs
+#legal in python, but not for our specs
+x = 3
+class x(object):
+    def __init__(self, z):
+        self.var = z
+
+instance = x("lol")
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+CLASS SYNTAX
+
+FILENAME: triviallybad.py
+
+ CODE:
+    pass
+
+
+
+
+COMMAND OUTPUT
+
+
+FILENAME: ignoreImport.py
+
+ CODE:
+import meow
+
+class foo(Object);
+    pass
+
+
+COMMAND OUTPUT
+
+
+FILENAME: it_return.py
+
+ CODE:
+class foo(Object):
+    
+    def f(self)::improper:
+        pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+f			FUNC_DEC	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+top of type inference
+
+FILENAME: ba_int2String.py
+
+ CODE:
+x = 2
+y = "hi"
+z = x+y
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+y			GLOBAL_VAR	-> 31
+z			GLOBAL_VAR	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for y
+adding global var y
+found decl for y
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for z
+adding global var z
+found decl for z
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+looking for decl for y
+found decl for y
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+INT allowed: 4
+INT category: 4
+before: 4
+before: 4
+before: 0
+before: 32
+after: 4
+after: 4
+after: 4
+after: 4
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+STR allowed: 8
+STR category: 8
+before: 8
+before: 8
+before: 0
+before: 32
+after: 8
+after: 8
+after: 8
+after: 8
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+ID allowed: 4
+ID category: 4
+top of type inference
+ID allowed: 8
+ID category: 8
+
+FILENAME: it_list.py
+
+ CODE:
+x::list(improper) = []
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: bad_self2.py
+
+ CODE:
+class Foo(Object):
+    x = 2
+
+self.x
+
+
+
+COMMAND OUTPUT
+
+
+
+DAST OF bad_self2.py
+
+(module 0
+    (class 1
+        (id 1 Foo)
+        (id 1 Object)
+        (block 2
+            (assign 2
+                (id 2 x)
+                (int_literal 2 2))))
+    (attributeref 4
+        (id 4 self)
+        (id 4 x)))
+(moduledecl 0 __main__
+
+(index_list 30))
+(moduledecl 1 __builtin__
+
+(index_list 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29))
+(classdecl 2 int 1
+)
+(classdecl 3 bool 1
+)
+(classdecl 4 file 1
+)
+(classdecl 5 str 1
+)
+(classdecl 6 range 1
+)
+(classdecl 7 list 1
+)
+(classdecl 8 tuple 1
+)
+(classdecl 9 dict 1
+)
+(constdecl 10 None 1
+)
+(constdecl 11 True 1
+)
+(constdecl 12 False 1
+)
+(constdecl 13 stdout 1
+)
+(constdecl 14 stdin 1
+)
+(constdecl 15 stderr 1
+)
+(constdecl 16 argv 1
+)
+(constdecl 17 for 1
+)
+(constdecl 18 in 1
+)
+(constdecl 19 while 1
+)
+(constdecl 20 if 1
+)
+(constdecl 21 elif 1
+)
+(constdecl 22 else 1
+)
+(constdecl 23 return 1
+)
+(constdecl 24 print 1
+)
+(funcdecl 25 append 1
+)
+(funcdecl 26 len 1
+)
+(funcdecl 27 open 1
+)
+(funcdecl 28 close 1
+)
+(funcdecl 29 xrange 1
+)
+(classdecl 30 Foo 0
+
+(index_list 31 32))
+(instancedecl 31 self 30
+)
+(instancedecl 32 x 30
+)
+
+FILENAME: it_varDeclare.py
+
+ CODE:
+x::int = 2
+y::str = 2
+z::improper = 2
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+y			GLOBAL_VAR	-> 31
+z			GLOBAL_VAR	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: it_param.py
+
+ CODE:
+
+class foo(Object):
+
+    def f(self i::int, j::improper):
+        pass
+
+
+COMMAND OUTPUT
+
+
+FILENAME: it_dict.py
+
+ CODE:
+x::dict = {int : improper}
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: bad_self.py
+
+ CODE:
+class Foo(Object):
+
+    self.x = 2
+
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ATTRIBUTEREF SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+Foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for Foo
+found decl for Foo
+top of decorate
+top of decorate
+top of decorate
+
+
+DAST OF bad_self.py
+
+(module 0
+    (class 1
+        (id 1 Foo)
+        (id 1 Object)
+        (block 3
+            (assign 3
+                (attributeref 3
+                    (id 3 self)
+                    (id 3 x))
+                (int_literal 3 2)))))
+(moduledecl 0 __main__
+
+(index_list 30))
+(moduledecl 1 __builtin__
+
+(index_list 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29))
+(classdecl 2 int 1
+)
+(classdecl 3 bool 1
+)
+(classdecl 4 file 1
+)
+(classdecl 5 str 1
+)
+(classdecl 6 range 1
+)
+(classdecl 7 list 1
+)
+(classdecl 8 tuple 1
+)
+(classdecl 9 dict 1
+)
+(constdecl 10 None 1
+)
+(constdecl 11 True 1
+)
+(constdecl 12 False 1
+)
+(constdecl 13 stdout 1
+)
+(constdecl 14 stdin 1
+)
+(constdecl 15 stderr 1
+)
+(constdecl 16 argv 1
+)
+(constdecl 17 for 1
+)
+(constdecl 18 in 1
+)
+(constdecl 19 while 1
+)
+(constdecl 20 if 1
+)
+(constdecl 21 elif 1
+)
+(constdecl 22 else 1
+)
+(constdecl 23 return 1
+)
+(constdecl 24 print 1
+)
+(funcdecl 25 append 1
+)
+(funcdecl 26 len 1
+)
+(funcdecl 27 open 1
+)
+(funcdecl 28 close 1
+)
+(funcdecl 29 xrange 1
+)
+(classdecl 30 Foo 0
+
+(index_list 31))
+(instancedecl 31 self 30
+)
+
+FILENAME: it_dict2.py
+
+ CODE:
+x::dict = {improper : int}
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: restrict_7_3.py
+
+ CODE:
+class foo(Object):
+
+    x = 2
+    def f(self):
+        def f2():
+            pass
+def __main__():
+    a = foo()
+    a.x
+    a.f
+    a.f2
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFF SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ATTRIBUTEREF SYNTAX
+ATTRIBUTEREF SYNTAX
+ATTRIBUTEREF SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+f			FUNC_DEC	-> 33
+f2			FUNC_DEC	-> 34
+__main__			FUNC_DEC	-> 35
+a			LOCAL_VAR	-> 36
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f2
+found decl for f2
+scoping in from def, new decl region is: f2
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for __main__
+found decl for __main__
+scoping in from def, new decl region is: __main__
+top of decorate
+top of decorate
+top of decorate
+looking for decl for a
+found decl for a
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+
+FILENAME: it_dict3.py
+
+ CODE:
+x = { int : improper}
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for int
+
+FILENAME: restrict_7_2.py
+
+ CODE:
+class foo(Object):
+
+    x = 2
+    def f(self):
+        pass
+
+def __main__():
+    a = foo()
+    a.x
+    a.f()
+    a.t()
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ATTRIBUTEREF SYNTAX
+DEFAULT SYNTAX
+ATTRIBUTEREF SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+ATTRIBUTEREF SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+f			FUNC_DEC	-> 33
+__main__			FUNC_DEC	-> 34
+a			LOCAL_VAR	-> 35
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for __main__
+found decl for __main__
+scoping in from def, new decl region is: __main__
+top of decorate
+top of decorate
+top of decorate
+looking for decl for a
+found decl for a
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+
+FILENAME: it_dict4.py
+
+ CODE:
+x::dict = { int: list(list(improper))}
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: bad_self3.py
+
+ CODE:
+class Foo(Object):
+    
+    x::int = 2
+    y::str = "meow"
+
+    def f(self):
+        self.x = "meow"
+        self.y = 2
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+ASSIGN SYNTAX
+ATTRIBUTEREF SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ATTRIBUTEREF SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+Foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+y			INSTANCE_VAR	-> 33
+f			FUNC_DEC	-> 34
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for Foo
+found decl for Foo
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+
+DAST OF bad_self3.py
+
+(module 0
+    (class 1
+        (id 1 Foo)
+        (id 1 Object)
+        (block 3
+            (assign 3
+                (typed_id 3
+                    (id 3 x)
+                    (type 3
+                        (id 3 int)
+                        (type_list 0)))
+                (int_literal 3 2))
+            (assign 4
+                (typed_id 4
+                    (id 4 y)
+                    (type 4
+                        (id 4 str)
+                        (type_list 0)))
+                (string_literal 4 "meow"))
+            (def 6
+                (id 6 f)
+                (formals_list 6
+                    (id 6 self))
+                ()
+                (block 7
+                    (assign 7
+                        (attributeref 7
+                            (id 7 self)
+                            (id 7 x))
+                        (string_literal 7 "meow"))
+                    (assign 8
+                        (attributeref 8
+                            (id 8 self)
+                            (id 8 y))
+                        (int_literal 8 2)))))))
+(moduledecl 0 __main__
+
+(index_list 30))
+(moduledecl 1 __builtin__
+
+(index_list 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29))
+(classdecl 2 int 1
+)
+(classdecl 3 bool 1
+)
+(classdecl 4 file 1
+)
+(classdecl 5 str 1
+)
+(classdecl 6 range 1
+)
+(classdecl 7 list 1
+)
+(classdecl 8 tuple 1
+)
+(classdecl 9 dict 1
+)
+(constdecl 10 None 1
+)
+(constdecl 11 True 1
+)
+(constdecl 12 False 1
+)
+(constdecl 13 stdout 1
+)
+(constdecl 14 stdin 1
+)
+(constdecl 15 stderr 1
+)
+(constdecl 16 argv 1
+)
+(constdecl 17 for 1
+)
+(constdecl 18 in 1
+)
+(constdecl 19 while 1
+)
+(constdecl 20 if 1
+)
+(constdecl 21 elif 1
+)
+(constdecl 22 else 1
+)
+(constdecl 23 return 1
+)
+(constdecl 24 print 1
+)
+(funcdecl 25 append 1
+)
+(funcdecl 26 len 1
+)
+(funcdecl 27 open 1
+)
+(funcdecl 28 close 1
+)
+(funcdecl 29 xrange 1
+)
+(classdecl 30 Foo 0
+
+(index_list 31 32 33 34))
+(instancedecl 31 self 30
+)
+(instancedecl 32 x 30
+)
+(instancedecl 33 y 30
+)
+(funcdecl 34 f 30
+)
+
+FILENAME: bad_self4.py
+
+ CODE:
+class Foo(Object):
+    
+    def f(self):
+        self.x = "meow"
+        self.y = 2
+        def f2(self):
+            pass
+        f2()
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+ASSIGN SYNTAX
+ATTRIBUTEREF SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ATTRIBUTEREF SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+ID SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+Foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+f			FUNC_DEC	-> 32
+x			INSTANCE_VAR	-> 33
+y			INSTANCE_VAR	-> 34
+f2			FUNC_DEC	-> 35
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for Foo
+found decl for Foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+
+
+DAST OF bad_self4.py
+
+(module 0
+    (class 1
+        (id 1 Foo)
+        (id 1 Object)
+        (block 3
+            (def 3
+                (id 3 f)
+                (formals_list 3
+                    (id 3 self))
+                ()
+                (block 4
+                    (assign 4
+                        (attributeref 4
+                            (id 4 self)
+                            (id 4 x))
+                        (string_literal 4 "meow"))
+                    (assign 5
+                        (attributeref 5
+                            (id 5 self)
+                            (id 5 y))
+                        (int_literal 5 2))
+                    (def 6
+                        (id 6 f2)
+                        (formals_list 6
+                            (id 6 self))
+                        ()
+                        (block 0
+                            (stmt_list 0)))
+                    (call 8
+                        (id 8 f2)
+                        (expr_list 0)))))))
+(moduledecl 0 __main__
+
+(index_list 30))
+(moduledecl 1 __builtin__
+
+(index_list 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29))
+(classdecl 2 int 1
+)
+(classdecl 3 bool 1
+)
+(classdecl 4 file 1
+)
+(classdecl 5 str 1
+)
+(classdecl 6 range 1
+)
+(classdecl 7 list 1
+)
+(classdecl 8 tuple 1
+)
+(classdecl 9 dict 1
+)
+(constdecl 10 None 1
+)
+(constdecl 11 True 1
+)
+(constdecl 12 False 1
+)
+(constdecl 13 stdout 1
+)
+(constdecl 14 stdin 1
+)
+(constdecl 15 stderr 1
+)
+(constdecl 16 argv 1
+)
+(constdecl 17 for 1
+)
+(constdecl 18 in 1
+)
+(constdecl 19 while 1
+)
+(constdecl 20 if 1
+)
+(constdecl 21 elif 1
+)
+(constdecl 22 else 1
+)
+(constdecl 23 return 1
+)
+(constdecl 24 print 1
+)
+(funcdecl 25 append 1
+)
+(funcdecl 26 len 1
+)
+(funcdecl 27 open 1
+)
+(funcdecl 28 close 1
+)
+(funcdecl 29 xrange 1
+)
+(classdecl 30 Foo 0
+
+(index_list 31 32))
+(instancedecl 31 self 30
+)
+(funcdecl 32 f 30
+
+(index_list 33))
+(funcdecl 33 f2 32
+)
+
+FILENAME: fd_missingSelf.py
+
+ CODE:
+class foo(Object):
+    def f(x):
+        pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+xSelf is not first param: ERRORPARAM SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+f			FUNC_DEC	-> 32
+x			PARAM_VAR	-> 33
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+top of type inference
+
+FILENAME: restrict_7_4.py
+
+ CODE:
+class foo(Object):
+
+    x = 2
+    def f(self):
+        pass
+
+def __main__():
+    a = foo()
+    a.x()
+    a.f
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFAULT SYNTAX
+ATTRIBUTEREF SYNTAX
+DEFAULT SYNTAX
+ATTRIBUTEREF SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+f			FUNC_DEC	-> 33
+__main__			FUNC_DEC	-> 34
+a			LOCAL_VAR	-> 35
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for __main__
+found decl for __main__
+scoping in from def, new decl region is: __main__
+top of decorate
+top of decorate
+top of decorate
+looking for decl for a
+found decl for a
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+
+FILENAME: restrict_7_5.py
+
+ CODE:
+class foo(Object):
+
+    x = 2
+    def f(self):
+        pass
+
+def __main__():
+    a = foo()
+    a.x
+    a.f
+    a.self
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ATTRIBUTEREF SYNTAX
+ATTRIBUTEREF SYNTAX
+ATTRIBUTEREF SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+f			FUNC_DEC	-> 33
+__main__			FUNC_DEC	-> 34
+a			LOCAL_VAR	-> 35
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for __main__
+found decl for __main__
+scoping in from def, new decl region is: __main__
+top of decorate
+top of decorate
+top of decorate
+looking for decl for a
+found decl for a
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+
+FILENAME: ba_int2String2.py
+
+ CODE:
+x::int = 2
+x = "meow"
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: ba_int2String3.py
+
+ CODE:
+x = 5 + "meow"
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+INT allowed: 4
+INT category: 4
+top of type inference
+STR allowed: 8
+STR category: 8
+
+FILENAME: restrict_10_1.py
+
+ CODE:
+None = 1
+True = "meow"
+False = ["meow"]
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+FILENAME: ba_list.py
+
+ CODE:
+x::list = ()
+x = 2
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: restrict_6_1.py
+
+ CODE:
+class Foo(Object):
+    pass
+
+class Foo(Object):
+    pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+Foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+Foo			CLASS_DEC	-> 32
+self			INSTANCE_VAR	-> 33
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for Foo
+found decl for Foo
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for Foo
+found decl for Foo
+top of decorate
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+
+FILENAME: ba_list2.py
+
+ CODE:
+x::list = {}
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: ba_list3.py
+
+ CODE:
+x::list(int) = ["meow", "rawr"]
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: restrict_6_2.py
+
+ CODE:
+class Foo(Object):
+
+    def f(self):
+        pass
+
+    def f(self):
+        pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+Foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+f			FUNC_DEC	-> 32
+f			FUNC_DEC	-> 33
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for Foo
+found decl for Foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+top of type inference
+top of type inference
+top of type inference
+
+FILENAME: ba_list4.py
+
+ CODE:
+x::list(str) = [2, "rawr"]
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: ba_list5.py
+
+ CODE:
+x = {}
+y = []
+z = x + y
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+y			GLOBAL_VAR	-> 31
+z			GLOBAL_VAR	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for y
+adding global var y
+found decl for y
+top of decorate
+top of decorate
+top of decorate
+looking for decl for z
+adding global var z
+found decl for z
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+looking for decl for y
+found decl for y
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+before: 0
+before: 32
+before: 0
+before: 32
+after: 0
+after: 32
+after: 0
+after: 32
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+before: 0
+before: 32
+before: 0
+before: 32
+after: 0
+after: 32
+after: 0
+after: 32
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+ID allowed: 32
+ID category: 0
+
+FILENAME: restrict_5_1.py
+
+ CODE:
+foo = 2
+
+class foo(Object):
+    pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+CLASS SYNTAX
+
+FILENAME: ba_list6.py
+
+ CODE:
+x::list(str) = ["meow"]
+y::list(int) = [2]
+z = x + y
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+TYPED_ID SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+y			GLOBAL_VAR	-> 31
+z			GLOBAL_VAR	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+looking for decl for x
+found decl for x
+
+FILENAME: ba_tuple.py
+
+ CODE:
+x = (improper, 2)
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+top of decorate
+looking for decl for improper
+
+FILENAME: restrict_5_2.py
+
+ CODE:
+class foo(Object):
+
+    f = 2
+
+    def f(self):
+        pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+error in creating def declaration
+
+FILENAME: ba_tuple2.py
+
+ CODE:
+x = (2, 2)
+z = 2 + x
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+x			GLOBAL_VAR	-> 30
+z			GLOBAL_VAR	-> 31
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+adding global var x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for z
+adding global var z
+found decl for z
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+INT allowed: 4
+INT category: 4
+top of type inference
+INT allowed: 4
+INT category: 4
+before: 0
+before: 32
+before: 0
+before: 32
+after: 0
+after: 32
+after: 0
+after: 32
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+INT allowed: 4
+INT category: 4
+top of type inference
+ID allowed: 32
+ID category: 0
+
+FILENAME: restrict_5_3.py
+
+ CODE:
+class foo(Object):
+
+    def f(self, f1):
+        
+        def f1():
+            pass
+
+
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfgetting param 1
+PARAM SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+error in creating def declaration
+
+FILENAME: bad_self5.py
+
+ CODE:
+class foo(Object):
+
+    def f(x):
+        pass
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+xSelf is not first param: ERRORPARAM SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+f			FUNC_DEC	-> 32
+x			PARAM_VAR	-> 33
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+top of type inference
+top of type inference
+
+FILENAME: restrict_5_4.py
+
+ CODE:
+class foo(Object):
+
+    def f(self):
+        self.f = 2
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+ASSIGN SYNTAX
+ATTRIBUTEREF SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+f			FUNC_DEC	-> 32
+f			INSTANCE_VAR	-> 33
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+
+FILENAME: restrict_7_1.py
+
+ CODE:
+class foo(Object):
+
+    x = 2
+    def f(self):
+        pass
+
+def __main__():
+    a = foo()
+    a.x
+    a.f
+    a.t
+
+
+COMMAND OUTPUT
+
+begin
+end
+DEFAULT SYNTAX
+CLASS SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+DEFF SYNTAX
+getting param 0
+
+
+
+
+
+
+selfDEFAULT SYNTAX
+DEFAULT SYNTAX
+DEFF SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+ATTRIBUTEREF SYNTAX
+ATTRIBUTEREF SYNTAX
+ATTRIBUTEREF SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+foo			CLASS_DEC	-> 30
+self			INSTANCE_VAR	-> 31
+x			INSTANCE_VAR	-> 32
+f			FUNC_DEC	-> 33
+__main__			FUNC_DEC	-> 34
+a			LOCAL_VAR	-> 35
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+top of decorate
+looking for decl for x
+found decl for x
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for __main__
+found decl for __main__
+scoping in from def, new decl region is: __main__
+top of decorate
+top of decorate
+top of decorate
+looking for decl for a
+found decl for a
+top of decorate
+top of decorate
+looking for decl for foo
+found decl for foo
+top of decorate
+top of decorate
+
+FILENAME: restrict_5_5.py
+
+ CODE:
+def f(x):
+    pass
+
+f = 2
+
+
+COMMAND OUTPUT
+
+DEFAULT SYNTAX
+DEFF SYNTAX
+getting param 0
+PARAM SYNTAX
+DEFAULT SYNTAX
+DEFAULT SYNTAX
+ASSIGN SYNTAX
+ID SYNTAX
+
+decl_set contents: 
+
+__main__		MODULE_DEC	-> 0
+__builtin__		MODULE_DEC	-> 1
+int			CLASS_DEC	-> 2
+bool			CLASS_DEC	-> 3
+file			CLASS_DEC	-> 4
+str			CLASS_DEC	-> 5
+range			CLASS_DEC	-> 6
+list			CLASS_DEC	-> 7
+tuple			CLASS_DEC	-> 8
+dict			CLASS_DEC	-> 9
+None			CONST_VAR	-> 10
+True			CONST_VAR	-> 11
+False			CONST_VAR	-> 12
+stdout			CONST_VAR	-> 13
+stdin			CONST_VAR	-> 14
+stderr			CONST_VAR	-> 15
+argv			CONST_VAR	-> 16
+for			CONST_VAR	-> 17
+in			CONST_VAR	-> 18
+while			CONST_VAR	-> 19
+if			CONST_VAR	-> 20
+elif			CONST_VAR	-> 21
+else			CONST_VAR	-> 22
+return			CONST_VAR	-> 23
+print			CONST_VAR	-> 24
+append			FUNC_DEC	-> 25
+len			FUNC_DEC	-> 26
+open			FUNC_DEC	-> 27
+close			FUNC_DEC	-> 28
+xrange			FUNC_DEC	-> 29
+f			FUNC_DEC	-> 30
+x			PARAM_VAR	-> 31
+f			GLOBAL_VAR	-> 32
+
+end decl_set contents
+
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+found decl for f
+scoping in from def, new decl region is: f
+top of decorate
+top of decorate
+top of decorate
+top of decorate
+looking for decl for f
+adding global var f
+found decl for f
+top of decorate
+ --- BEGIN TYPE INFERENCE --- 
+top of type inference
+top of type inference
+top of type inference
+top of type inference
+ - assign statement start
+top of type inference
+ID allowed: 32
+ID category: 0
+top of type inference
+INT allowed: 4
+INT category: 4
+before: 4
+before: 4
+before: 0
+before: 32
+after: 4
+after: 4
+after: 4
+after: 4

@@ -1,0 +1,624 @@
+/* -*- mode: C++; c-file-style: "stroustrup"; indent-tabs-mode: nil; -*- */
+
+/* ast.cc: Basic AST subclasses. */
+
+/* Authors:  YOUR NAMES HERE */
+
+#include <iostream>
+#include "apyc.h"
+#include "ast.h"
+#include "apyc-parser.hh"
+#include <string>
+#include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+/* Definitions of methods in base class AST. */
+
+int AST::current_mark = 0;
+
+//current lambda number
+int lambda_marker = 0;
+
+//set of all declarations
+extern std::vector<Decl*> decl_set;
+//declaration index
+int decl_index = 2;
+
+//extern declarations for creating decls
+extern Decl* makeLocalDecl(const string& name, Decl* func, AST_Ptr type);
+
+extern Decl*
+makeGlobalDecl(const string& name, Decl* module, AST_Ptr type);
+
+extern Decl*
+makeParamDecl(const string& name, Decl* func, int k, AST_Ptr type);
+
+extern Decl*
+makeConstDecl(const string& name, Decl* module, AST_Ptr type);
+
+extern Decl*
+makeInstanceDecl(const string& name, Decl* cls, AST_Ptr type);
+
+extern Decl*
+makeFuncDecl(const string& name, Decl* container, AST_Ptr type);
+
+extern Decl*
+makeMethodDecl(const string& name, Decl* cls, AST_Ptr type);
+
+extern Decl*
+makeClassDecl(const string& name, Decl* module, Decl* supertype);
+
+extern Decl*
+makeModuleDecl(const string& name);
+
+AST::AST() :
+	_mark(0) {
+}
+
+bool AST::mark() {
+	if (_mark == current_mark)
+		return false;
+	_mark = current_mark;
+	return true;
+}
+
+void AST::unmark() {
+	_mark = 0;
+}
+
+void AST::print(ostream& out, int indent) {
+	current_mark += 1;
+	print(this, out, indent);
+}
+
+void AST::print(AST_Ptr tree, std::ostream& out, int indent) {
+	if (tree->mark())
+		tree->_print(out, indent);
+	else
+		out << "...";
+	tree->unmark();
+}
+
+Type_Ptr AST::asType() {
+	throw logic_error("node does not represent a type");
+}
+
+Decl*
+AST::getDecl() {
+	throw logic_error("node does not represent a named entity");
+}
+
+void AST::setDecl(Decl*) {
+	throw logic_error("node does not represent a named entity");
+}
+
+bool AST::isMissing() {
+	return false;
+}
+
+/* Definitions of methods in base class AST_Tree. */
+
+void AST_Tree::_print(ostream& out, int indent) {
+	out << "(" << externalName() << " " << lineNumber();
+	for_each_child (c, this) {
+		out << endl << setw (indent + 4) << "";
+		print (c, out, indent + 4);
+	}
+	end_for;
+	out << ")";
+}
+
+const char* AST_Tree::externalName() {
+	static string result;
+
+	int syntax = oper()->syntax();
+	const char* name;
+	name = yyexternal_token_name(syntax);
+	if (name == NULL)
+		return "?";
+	if (name[0] != '"')
+		return name;
+	name += 1;
+	while (*name == '@')
+		name += 1;
+
+	if (name[0] == '\0')
+		return "?";
+
+	result = string(name, strlen(name) - 1);
+	return result.c_str();
+}
+
+/** This method needs to construct the decl tree and assign unique declaration IDs to all
+ * variable assignments, classdefs, and function defs.
+ * */
+//TODO: Nov 5th 1300 - to melvin
+/* 1 we have to to make sure that super class works
+ * 2 i implemented some decls methods - note that much of our pointer manipulation
+ * 		and assignment can be consolidated into the actual make*yada*Decl in decls.cc
+ * 		Please see proposed changes in "decorate" for declare and if you agree wiht them
+ * 3 also under case ID: - I'm not sure if your done implementing this, but it maybe
+ * 		just an id/typedid vs a target list, i think we went over this, just a reminder
+ */
+void declareBuiltIns(Decl* builtin_module) {
+
+	//handle typing keywords
+	const char* type_keywords[] = { "int", "bool", "file", "str", "range", "list", "tuple", "dict", };
+	int type_keywords_size = sizeof(type_keywords) / sizeof(char*);
+	for (int i = 0; i < type_keywords_size; i++) {
+		string decl_name = type_keywords[i];
+		Decl* new_decl = makeClassDecl(decl_name, builtin_module, NULL);
+		new_decl->set_index(decl_index);
+		decl_set.push_back(new_decl);
+		decl_index++;
+	}
+
+	//handling const keywords
+	const char* const_keywords[] = { "None", "True", "False", "stdout", "stdin", "stderr", "argv", "for", "in", "while", "if", "elif", "else", "return",
+			"print" };
+	int const_keywords_size = sizeof(const_keywords) / sizeof(char*);
+	for (int i = 0; i < const_keywords_size; i++) {
+		string decl_name = const_keywords[i];
+		Decl* new_decl = makeConstDecl(decl_name, builtin_module, Type::makeVar());
+		new_decl->set_index(decl_index);
+		decl_set.push_back(new_decl);
+		decl_index++;
+	}
+
+	//handle function keywords
+	const char * func_keywords[] = { "append", "len", "open", "close", "xrange" };
+	int func_keywords_size = sizeof(func_keywords) / sizeof(char*);
+	for (int i = 0; i < func_keywords_size; i++) {
+		string decl_name = func_keywords[i];
+		Decl* new_decl = makeFuncDecl(decl_name, builtin_module, Type::makeVar());
+		new_decl->set_index(decl_index);
+		decl_set.push_back(new_decl);
+		decl_index++;
+	}
+
+}
+void AST::declare(AST_Ptr root, Decl* decl_region, TargetEnum target_enum) {
+	/** pay particular attention to these sections in spec:
+	 * 6.5
+	 * 6.6
+	 * 6.10
+	 *
+	 * need to throw errors if you catch these.
+	 * to throw an error, use:     throw logic_error ("derp derp derp"); */
+	int syntax = root->oper()->syntax();
+	int num_children = root->arity();
+
+	Decl* new_decl;
+	switch (syntax) {
+	case CLASS_BLOCK: {
+		//create decl_node
+		string decl_name = root->child(0)->as_string();
+
+		//check for project restrictions
+		bool restricted = decl_name == "None" || decl_name == "True" || decl_name == "False" || decl_region->contains_member(decl_name, CLASSD);
+		if (decl_region->get_dast_type() == CLASSD)
+			restricted = restricted || decl_region->contains_member(decl_name, INSTANCED);
+		else if (decl_region->get_dast_type() == FUNCD)
+			restricted = restricted || decl_region->contains_member(decl_name, LOCALD);
+		else if (decl_region->get_dast_type() == MODULED)
+			restricted = restricted || decl_region->contains_member(decl_name, GLOBALD);
+
+		if (restricted) {
+			cout << "error in creating class declaration";
+			break;
+		}
+		new_decl = makeClassDecl(decl_name, decl_set[0], NULL);
+		new_decl->set_index(decl_index);
+
+		//debug print
+		cout << "CLASS SYNTAX, declaring: " << decl_name << "\n";
+
+		//add decl to global decl_set
+		decl_set.push_back(new_decl);
+		decl_index++;
+
+		//declare the appropriate child nodes (block structure)
+		declare(root->child(2), new_decl, target_enum);
+	}
+		break;
+	case DEF: {
+		//create funcdecl node
+		string decl_name = root->child(0)->as_string();
+
+		//check for project restrictions
+		bool restricted = decl_name == "None" || decl_name == "True" || decl_name == "False" || decl_region->contains_member(decl_name, FUNCD);
+		if (decl_region->get_dast_type() == CLASSD)
+			restricted = restricted || decl_region->contains_member(decl_name, INSTANCED);
+		else if (decl_region->get_dast_type() == FUNCD)
+			restricted = restricted || decl_region->contains_member(decl_name, LOCALD) || decl_region->contains_member(decl_name, PARAMD);
+		else if (decl_region->get_dast_type() == MODULED)
+			restricted = restricted || decl_region->contains_member(decl_name, GLOBALD);
+
+		if (restricted) {
+			cout << "error in creating def declaration";
+			break;
+		}
+
+		AST_Ptr decl_formals = root->child(1);
+		new_decl = makeFuncDecl(decl_name, decl_region, Type::makeVar());
+		new_decl->set_index(decl_index);
+
+		//debug print
+		cout << "DEF SYNTAX, declaring: " << decl_name << "\n";
+
+		//add decl to parent_region and global decl_set
+		decl_set.push_back(new_decl);
+		decl_index++;
+		decl_region = new_decl;
+
+		//get parameters
+		for (size_t j = 0; j < decl_formals->arity(); j++) {
+			AST_Ptr formal = decl_formals->child(j);
+			string formal_name;
+			AST_Ptr formal_type;
+			if (formal->arity() == 0) {
+				//ID
+				formal_name = formal->as_string();
+				formal_type = Type::makeVar();
+			} else {
+				//typed ID
+				AST_Ptr formal_typedid = formal->child(0);
+				formal_name = formal_typedid->child(0)->as_string();
+				formal_type = formal_typedid->child(1);//not sure if correct on type
+			}
+
+			new_decl = makeParamDecl(formal_name, decl_region, j, formal_type);
+			new_decl->set_index(decl_index);
+			decl_set.push_back(new_decl);
+			decl_index++;
+
+			//debug print
+			cout << "PARAM, declaring: " << formal_name << "\n";
+		}
+		//declare the appropriate child nodes (formals and block)
+		declare(root->child(3), decl_region, target_enum);
+
+	}
+		break;
+	case ASSIGN: {
+		cout << "ASSIGN SYNTAX\n";
+		declare(root->child(0), decl_region, IS_TARGET);
+	}
+		break;
+	case FOR: {
+		cout << "FOR SYNTAX\n";
+		declare(root->child(0), decl_region, IS_TARGET);
+	}
+		break;
+	case ID: {
+		if (target_enum == IS_TARGET) {
+			//create decl based on container type
+			string decl_name = root->as_string();
+
+			//check for built in restrictions
+			bool restricted = decl_name == "None" || decl_name == "True" || decl_name == "False";
+			if (restricted) {
+				cout << "error in creating variable declaration";
+				break;
+			}
+
+			bool valid = false;
+			switch (decl_region->_cont_type) {
+			case CLASS_BLOCK: {
+				//if decl is in class and not previously declared => instance var
+				if (!decl_region->contains_member(decl_name, INSTANCED)) {
+					new_decl = makeInstanceDecl(decl_name, decl_region, Type::makeVar());
+					valid = true;
+				}
+
+			}
+				break;
+			case MODULE: {
+				//if decl is in module and not previously declared => global var
+				if (!decl_region->contains_member(decl_name, GLOBALD)) {
+					new_decl = makeGlobalDecl(decl_name, decl_region, Type::makeVar());
+					valid = true;
+				}
+			}
+				break;
+			case DEF: {
+				//if decl is in def and not previously declared => local var
+				if (!decl_region->contains_member(decl_name, LOCALD) && !decl_region->contains_member(decl_name, PARAMD)) {
+					new_decl = makeLocalDecl(decl_name, decl_region, Type::makeVar());
+					valid = true;
+				}
+			}
+				break;
+			}
+
+			if (valid) {
+				new_decl->set_index(decl_index);
+
+				//debug print
+				cout << "ID SYNTAX, declaring: " << decl_name << "\n";
+
+				//add decl to global decl_set
+				decl_set.push_back(new_decl);
+				decl_index++;
+			}
+		}
+	}
+		break;
+
+	default: {
+		cout << "DEFAULT SYNTAX\n";
+		for (int i = 0; i < num_children; i++) {
+			declare(root->child(i), decl_region, target_enum);
+		}
+
+	}
+	}
+}
+
+void AST::decorate(AST_Ptr root, Decl* decl_region, vector<Decl*> global_decls, TargetEnum target_enum) {
+	int i;
+	string node_name;
+	Decl* new_decl_region;
+	int syntax = root->oper()->syntax();
+	vector<Decl*> decl_members = decl_region->get_members();
+	switch (syntax) {
+
+	case ASSIGN:
+		decorate(root->child(0), decl_region, global_decls, IS_TARGET);
+		break;
+	case CLASS_BLOCK:
+		node_name = root->child(0)->as_string();
+		for (i = 0; i < decl_members.size(); i++) {
+			Decl* member = decl_members[i];
+
+			//if we can match the class name to a decl, change the scope to be that decl
+			if (member->get_name().compare(node_name) == 0) {
+				new_decl_region = member;
+				break;
+			}
+		}
+		if (new_decl_region != NULL) {
+			decorate(root->child(2), new_decl_region, global_decls, target_enum);
+		} else {
+			Decl* container = decl_region->get_container();
+			if (container == NULL) {
+				//throw an error, we're at the highest level and haven't found the decl
+			} else {
+				decorate(root, container, global_decls, target_enum);
+			}
+		}
+		break;
+	case DEF:
+		node_name = root->child(0)->as_string();
+		for (i = 0; i < decl_members.size(); i++) {
+			Decl* member = decl_members[i];
+
+			//if we can match the class name to a decl, change the scope to be that decl
+			if (member->get_name().compare(node_name) == 0) {
+				new_decl_region = member;
+				break;
+			}
+		}
+		if (new_decl_region != NULL) {
+			decorate(root->child(3), new_decl_region, global_decls, target_enum);
+		} else {
+			Decl* container = decl_region->get_container();
+			if (container == NULL) {
+				//throw an error, we're at the highest level available and haven't found the decl
+			} else {
+				decorate(root, container, global_decls, target_enum);
+			}
+		}
+		break;
+	case ID:
+		node_name = root->as_string();
+		for (i = 0; i < decl_members.size(); i++) {
+			Decl* member = decl_members[i];
+			if (member->get_name().compare(node_name) == 0) {
+				/*Set the declaration for the identifier node.
+				 If we're global, though, we have to see if we've declared this global already.
+				 Given that we're in the global scope and haven't declared it yet, we need to throw an error.
+				 This isn't done yet.
+				 */
+				root->setDecl(member);
+
+				//if this is a global, we want to mark that we've seen it so far so we can use it later
+				//also make sure that this is a left side declaration
+				if (member->get_dast_type() == GLOBALD && target_enum == IS_TARGET) {
+					bool decl_exists = false;
+					for (int i = 0; i < global_decls.size(); i++) {
+						if (global_decls[i]->get_name().compare(node_name) == 0) {
+							decl_exists = true;
+							break;
+						}
+					}
+					if (!decl_exists) {
+						global_decls.push_back(member);
+					}
+				}
+				break;
+			}
+		}
+		break;
+
+	default:
+		for (i = 0; i < root->arity(); i++) {
+			decorate(root->child(i), decl_region, global_decls, target_enum);
+		}
+	}
+}
+
+void AST::rewriteLambda(AST_Ptr root, bool scope_region, vector<AST_Ptr>* additions) {
+	if (root->arity() != 0) {
+		int original_count = root->arity();
+		for (int i = 0; i < original_count; i++) {
+			AST_Ptr child = root->child(i);
+			int syntax = child->oper()->syntax();
+
+			switch (syntax) {
+			case LAMBDA: {
+				AST_Ptr formals = child->child(0);
+				AST_Ptr type0 = child->child(1);
+				AST_Ptr expr = child->child(2);
+
+				AST_Ptr a[1] = { expr };
+				AST_Ptr block = AST::make_tree(BLOCK, a, a + 1);
+
+				//lambda naming
+				char lol[256];
+				std::sprintf(lol, "__lambda%d__", lambda_marker);
+				string id = lol;
+				//increment current lambda number
+				lambda_marker++;
+				AST_Ptr name = AST::make_token(ID, id);
+				AST_Ptr args[4] = { name, formals, type0, block };
+
+				AST_Ptr def = AST::make_tree(DEF, args, args + 4);
+
+				/* Now rewrite the new expression (might be nested lambdas) */
+				vector<AST_Ptr> empty;
+				rewriteLambda(def->child(3), true, &empty);
+
+				root->replace(i, AST::make_token(ID, id));
+
+				(*additions).push_back(def);
+			}
+				break;
+			case CLASS_BLOCK: {
+				vector<AST_Ptr> empty;
+				rewriteLambda(child->child(2), true, &empty);
+			}
+				break;
+			case DEF: {
+				vector<AST_Ptr> empty;
+				rewriteLambda(child->child(3), true, &empty);
+			}
+				break;
+			default:
+				rewriteLambda(child, false, additions);
+			}
+		}
+
+		if (scope_region) {
+			for (size_t i = 0; i < (*additions).size(); i++) {
+				root->insert(0, (*additions)[i]);
+			}
+		}
+	}
+}
+
+void AST::rewriteCalls(AST_Ptr root) {
+	cout << "rewriteCalls, not done yet.";
+}
+
+Type_Ptr AST::typeInference(AST_Ptr root) {
+	cout << "top of type inference\n";
+	int syntax = root->oper()->syntax();
+	Type_Ptr my_type;
+
+	switch (syntax) {
+	case ID: {
+		//Decl* decl = root->getDecl();
+		my_type = Type::makeVar();
+		cout << "ID allowed: " << my_type->getAllowed() << "\n";
+	}
+		break;
+	case INT_LITERAL: {
+		//AST_Ptr dummy[1];
+		//Type_Ptr cltype = AST::make_tree(TYPE, dummy, dummy)->asType();
+		//cltype->restrict(4);
+		my_type = Type::makeClassType(4);
+		cout << "INT allowed: " << my_type->getAllowed() << "\n";
+		cout << "INT allowed: " << my_type->getCategory() << "\n";
+	}
+		break;
+	case STRING: {
+		my_type = Type::makeVar(8);
+	}
+		break;
+
+	case ASSIGN: {
+		/** Single target case: */
+		Type_Ptr temp = Type::makeVar();
+
+		Type_Ptr target = typeInference(root->child(0));
+		Type_Ptr rightSide = typeInference(root->child(1));
+		cout << "before: " << rightSide->getCategory() << "\n";
+		cout << "before: " << rightSide->getAllowed() << "\n";
+		cout << "before: " << target->getCategory() << "\n";
+		cout << "before: " << target->getAllowed() << "\n";
+
+		//temp->unify(rightSide);
+		//temp->unify(target);
+		target->unify(rightSide);
+		//rightSide->unify(target);
+
+		cout << "after: " << rightSide->getCategory() << "\n";
+		cout << "after: " << rightSide->getAllowed() << "\n";
+		cout << "after: " << target->getCategory() << "\n";
+		cout << "after: " << target->getAllowed() << "\n";
+	}
+		break;
+	case DEF: {
+
+	}
+		break;
+	default: {
+		if (root->arity() != 0) {
+			my_type = typeInference(root->child(0));
+		} else {
+			my_type = Type::makeVar();
+		}
+	}
+	}
+
+	return my_type;
+}
+
+AST_Ptr AST::semantics() {
+	cout << " semantics() called inside ast.cc";
+	return this;
+}
+
+AST_Ptr make_id(const char* text, const char* loc) {
+	AST_Ptr result = AST::make_token(ID, strlen(text), text, false);
+	result->set_loc(loc);
+	return result;
+}
+
+/* The Horn framework has a provision (the NODE_FACTORY macro) that
+ * allows AST subclasses to "register" themselves with the parser and
+ * associate themselves with a particular syntactic category so that
+ * the parser will create instances of the appropriate subclass when
+ * asked to produce an AST node with a particular operator.  The
+ * NODE_..._CONSTRUCTOR... macros set up the necessary constructors
+ * and factory declarations in any given class.  To associate a
+ * class with a given operator token, pass the (int) value of that
+ * token's syntactic category to the NODE_FACTORY macro (for
+ * one-character tokens, the character itself is usually the syntactic
+ * category; for other tokens, use the name declared in the Horn
+ * source file (those definitions appear in apyc-parser.hh, included above).
+ */
+
+/** A node representing a missing element in the AST (e.g., a missing 
+ *  >>FILE argument in a print node.) */
+class Empty_AST: public AST_Tree {
+protected:
+
+	/** Override AST_Tree::_print */
+	void _print(ostream& out, int indent) {
+		out << "()";
+	}
+
+	bool isMissing() {
+		return true;
+	}
+
+NODE_CONSTRUCTORS (Empty_AST, AST_Tree);
+
+};
+
+NODE_FACTORY (Empty_AST, EMPTY);

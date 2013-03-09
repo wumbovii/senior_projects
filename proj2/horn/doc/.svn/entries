@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   name=""
+   revision="5345"
+   last-author="hilfingr"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/horn/doc"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="1072"
+   kind="dir"
+   committed-date="2011-09-21T22:48:38.828696Z"/>
+<entry
+   name="Makefile"
+   checksum="397da1f38507f36c0fd076c95c31bca0"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="horn.pdf"
+   checksum="9047f4f32d6938e95b6500848f810f03"
+   last-author="hilfingr"
+   text-time="2011-09-14T00:22:39.000000Z"
+   committed-rev="583"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"
+   prop-time="2011-11-03T04:02:33.000000Z"/>
+<entry
+   name="horn.pic"
+   checksum="5b00e2e6f0de313a425f414edfb3f198"
+   last-author="hilfingr"
+   committed-rev="1072"
+   text-time="2011-09-21T22:48:38.000000Z"
+   kind="file"
+   committed-date="2011-09-21T22:48:38.828696Z"/>
+</wc-entries>

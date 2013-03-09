@@ -1,0 +1,32 @@
+Sean Wiser
+20066068
+
+1) There are a few outliers that could skew data.
+There were 342 who gave fractional dollars
+There were 3 people who gave more than 100,000 dollars
+There were also several people who gave negative amounts
+
+This could skew the range of the amounts
+
+2) We cannot trust the assumption
+ 
+There are a few examples where the assumption breaks
+ie: BLEVINS, DARONDA, MINNIS, RITA  etc.
+Out of s[:50], so 50 donors, 7 were repeats.
+Meaning that 1/7 were duplicates.
+
+This could have inflate the num of donors substantially.
+For example: BLEVINS, DARONDA has over 15 donations to Bachmann
+
+We cannot trust this assumption.
+
+3) Obama has 41/70 states won. This does not mean much because the 
+GOP has not consolidated its power behind one candidate. If it was
+done by party it would be a better perspective
+Assumption: Stuf like "DC" and "XX" count as a state and donations amt > 0
+
+4) Republicans win 46/70 states 
+
+5) - Democrats take a great deal of wins even in some southern states
+- That XX is a U.S. thing?
+- Congressman Ron Paul has a lot of donors for a non major party

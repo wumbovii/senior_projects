@@ -1,0 +1,8 @@
+from sys import stdin, stderr, stdout
+from sys import argv
+
+def append(L0, L1):
+    L0.append(L1)
+
+
+

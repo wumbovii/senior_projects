@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="6919"
+   last-author="hilfingr"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/horn/analysis"
+   committed-rev="583"
+   kind="dir"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="analysis.py"
+   checksum="43ed874b796e53c8adb782eb68544986"
+   last-author="hilfingr"
+   text-time="2011-09-14T00:22:39.000000Z"
+   committed-rev="583"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="look2.y"
+   checksum="6d7ea92010865f4c7bffee4ffb518b71"
+   last-author="hilfingr"
+   text-time="2011-09-14T00:22:39.000000Z"
+   committed-rev="583"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="look2a.y"
+   checksum="d839be0eca7588ec53b1200c94a8857c"
+   last-author="hilfingr"
+   text-time="2011-09-14T00:22:39.000000Z"
+   committed-rev="583"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+</wc-entries>

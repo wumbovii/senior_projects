@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   name=""
+   revision="9593"
+   last-author="hilfingr"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj3/tests/error3"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="7122"
+   kind="dir"
+   committed-date="2011-11-25T10:58:56.707877Z"/>
+<entry
+   name="triviallybad.py"
+   checksum="2703830ac114c5b80dad192e3f15d759"
+   last-author="hilfingr"
+   committed-rev="7122"
+   text-time="2011-11-25T10:58:56.000000Z"
+   kind="file"
+   committed-date="2011-11-25T10:58:56.707877Z"/>
+</wc-entries>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="9593"
+   last-author="cs164-bn"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj3/lib/apyc"
+   committed-rev="9534"
+   kind="dir"
+   committed-date="2011-12-09T12:37:58.385421Z"/>
+<entry
+   name="runtime.cc"
+   revision="9599"
+   checksum="d08d4f76d57d7a38560d65ce7cad342e"
+   last-author="cs164-bz"
+   text-time="2011-12-09T21:42:22.000000Z"
+   committed-rev="9599"
+   kind="file"
+   committed-date="2011-12-09T21:49:18.435000Z"/>
+<entry
+   name="runtime.h"
+   revision="9599"
+   checksum="5d3052a20cf3f1207e2552218d301534"
+   last-author="cs164-bz"
+   text-time="2011-12-09T21:44:13.000000Z"
+   committed-rev="9599"
+   kind="file"
+   committed-date="2011-12-09T21:49:18.435000Z"/>
+</wc-entries>

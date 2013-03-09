@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="6919"
+   last-author="cs164-bz"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/tests/error2"
+   committed-rev="6582"
+   kind="dir"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="ba_int2String.py"
+   checksum="547a8965beefefd5055a166eeb02d61a"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_int2String2.py"
+   checksum="dfc1679935257b2e6858961335b19904"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_int2String3.py"
+   checksum="813387d0763554472ee1525af1c3796d"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_list.py"
+   checksum="4e71cb1a418102141a9fa728097cf698"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_list2.py"
+   checksum="a780d07a878402e8f1362039848fa4fe"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_list3.py"
+   checksum="896c8451ee31e3b92dc1a863eda69f49"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_list4.py"
+   checksum="b4de3ba2a7cd75d7096139f3985763d2"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_list5.py"
+   checksum="ae9e972535c83af61627552c5d0e2c9c"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_list6.py"
+   checksum="f349231a58a3b8f166845bc4421ab6b2"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_tuple.py"
+   checksum="49962ebcd56477b65fd085070c76470e"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ba_tuple2.py"
+   checksum="65a24db4e901b41c4db1301ab17c9aba"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="bad_self.py"
+   checksum="7b229267245238e9bbc0c4ba677344ce"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="bad_self2.py"
+   checksum="73767345b1ca0c7d1e073a57ce9fc59e"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="bad_self3.py"
+   checksum="f2d91dc1fc166dc8cc30151d4144dbb0"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="bad_self4.py"
+   checksum="d8c928644daa3854ce7393be621172da"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="bad_self5.py"
+   checksum="a52336f9afc813cab96baf70fed1bfb0"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="fd_missingSelf.py"
+   checksum="dc3307b4407415f61f058960bd0bf411"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ignoreImport.py"
+   checksum="c54aa7ea284b4ff894ebc3c63741c0e9"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="ignoreImport2.py"
+   checksum="a25bc10652268d8a2eb5c18145abda1b"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_dict.py"
+   checksum="3c0eee7ef629c342ddb870733b3c8352"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_dict2.py"
+   checksum="d27c72b1730f5d8ca8347093316329e8"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_dict3.py"
+   checksum="8d2512396acc3e6118bc92ea589d94d6"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_dict4.py"
+   checksum="ada8aed7ccdb8c4c24a489279a82e604"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_list.py"
+   checksum="ab6fbb05ade0a90e35a6e18371e4c17f"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_param.py"
+   checksum="b9e2e1310e794bf674f32197ea93fd52"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_return.py"
+   checksum="e9575d776e9b190ee67f52b44c09ad5a"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="it_varDeclare.py"
+   checksum="243044f5b78ebca4f26649c05d626fd0"
+   last-author="cs164-bz"
+   text-time="2011-11-09T19:48:55.000000Z"
+   committed-rev="5986"
+   kind="file"
+   committed-date="2011-11-09T19:48:55.960228Z"/>
+<entry
+   name="melviniserror.txt"
+   checksum="64cd667e7d4e55efc780b672e5ba6c33"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="restrict_10_1.py"
+   checksum="b5e52522989fdd8e042b1137058526ee"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_13_1.py"
+   checksum="d87ff0e119a159ca6d175c1d6a8ea4d9"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="restrict_14_1.py"
+   checksum="6119c6856069198024b3512a16b7aaa6"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="restrict_14_2.py"
+   checksum="6c5ed0864475902f750339bc9fa16d57"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="restrict_14_3.py"
+   checksum="14b6bcde64da43ddb4d12e9243e73f93"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="restrict_14_4.py"
+   checksum="68ee2af80aef8f8f552b50da2dee7789"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="restrict_5_1.py"
+   checksum="523be9aa96e9e48516f391dd892f8247"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_5_2.py"
+   checksum="588f9728f31861888776eaa232095656"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_5_3.py"
+   checksum="d1e7720302c323418c6453bb648be9c1"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_5_4.py"
+   checksum="6c179760db9b1526d75cd3dcd7278c96"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_5_5.py"
+   checksum="d37e7554d2be0ff62158746869d2d883"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_6_1.py"
+   checksum="438bc0d59e1ff0a7012f76c50dfafe7c"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_6_2.py"
+   checksum="0d749ffa649981db166587a98ff975df"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_7_1.py"
+   checksum="4ba77b45708ed74a834eec2a79c4dccc"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_7_2.py"
+   checksum="508fba624113dc19821a9661c011a666"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_7_3.py"
+   checksum="cd54694ec18238b3319faadccb109aca"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_7_4.py"
+   checksum="95fa09d554da6ea2ee1f508b108df8f7"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_7_5.py"
+   checksum="587414f2efd2bacb392d12852ce71c83"
+   last-author="cs164-bz"
+   text-time="2011-11-09T23:29:56.000000Z"
+   committed-rev="6018"
+   kind="file"
+   committed-date="2011-11-09T23:29:56.221201Z"/>
+<entry
+   name="restrict_8_1.py"
+   checksum="e95aa90f0807fb11a191eb86abb5e415"
+   last-author="cs164-bz"
+   committed-rev="6582"
+   text-time="2011-11-11T05:08:00.000000Z"
+   kind="file"
+   committed-date="2011-11-11T05:08:00.208593Z"/>
+<entry
+   name="testDeclare.py"
+   checksum="80753283ad4c2ad0d3b507e4e725b0fc"
+   last-author="cs164-bn"
+   text-time="2011-11-06T07:59:20.000000Z"
+   committed-rev="5194"
+   kind="file"
+   committed-date="2011-11-06T07:59:20.216095Z"/>
+<entry
+   name="testDeclare2.py"
+   checksum="42d202459d0b6c1499973f7af13219db"
+   last-author="cs164-bn"
+   text-time="2011-11-07T01:34:49.000000Z"
+   committed-rev="5291"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare3.py"
+   checksum="b2e13d769de7bb09ef5fd428c3d76247"
+   last-author="cs164-bn"
+   text-time="2011-11-07T01:34:49.000000Z"
+   committed-rev="5291"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare4.py"
+   checksum="ccd20a5d0ddb5dcdc5d6c01d24e03d2f"
+   last-author="cs164-bn"
+   text-time="2011-11-07T01:34:49.000000Z"
+   committed-rev="5291"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare5.py"
+   checksum="9009828b29f55026a73fd04dc9901287"
+   last-author="cs164-bn"
+   text-time="2011-11-10T00:04:57.000000Z"
+   committed-rev="6026"
+   kind="file"
+   committed-date="2011-11-10T00:04:57.208127Z"/>
+<entry
+   name="triviallybad.py"
+   checksum="6ceec5a323aa595b3df882e18404235f"
+   last-author="hilfingr"
+   text-time="2011-10-22T02:08:42.000000Z"
+   committed-rev="4270"
+   kind="file"
+   committed-date="2011-10-22T02:08:42.334864Z"/>
+</wc-entries>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="6919"
+   last-author="cs164-cp"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/src"
+   committed-rev="6064"
+   kind="dir"
+   committed-date="2011-11-10T01:19:37.970248Z"/>
+</wc-entries>

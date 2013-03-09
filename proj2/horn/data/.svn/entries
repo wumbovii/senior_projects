@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   name=""
+   revision="5345"
+   last-author="hilfingr"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/horn/data"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="4104"
+   kind="dir"
+   committed-date="2011-10-10T06:05:16.466471Z"/>
+<entry
+   name="horn-common.h"
+   checksum="53e9dc0f1877b105aba48a454a37a3b8"
+   last-author="hilfingr"
+   committed-rev="1105"
+   text-time="2011-09-24T02:49:55.000000Z"
+   kind="file"
+   committed-date="2011-09-24T02:49:55.959255Z"/>
+<entry
+   name="horn-parse-lex.cc"
+   checksum="f3224dcdabf804c02670abca343e8271"
+   last-author="hilfingr"
+   committed-rev="4104"
+   text-time="2011-10-10T06:05:16.000000Z"
+   kind="file"
+   committed-date="2011-10-10T06:05:16.466471Z"/>
+<entry
+   name="interactive-lexer-template.l"
+   checksum="bd28172c472cd71f1e144757928c71b6"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="lexer-template.l"
+   checksum="4919791bb091c8818a660c6bf220a35a"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+<entry
+   name="parser-template.y"
+   checksum="47f00fe3601c5333bb162cb218d4d5af"
+   last-author="hilfingr"
+   committed-rev="583"
+   text-time="2011-09-14T00:22:39.000000Z"
+   kind="file"
+   committed-date="2011-09-14T00:22:39.338878Z"/>
+</wc-entries>

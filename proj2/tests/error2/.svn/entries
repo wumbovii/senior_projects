@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="5345"
+   last-author="cs164-bn"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2/tests/error2"
+   committed-rev="5291"
+   kind="dir"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare.py"
+   checksum="80753283ad4c2ad0d3b507e4e725b0fc"
+   last-author="cs164-bn"
+   committed-rev="5194"
+   text-time="2011-11-06T07:59:20.000000Z"
+   kind="file"
+   committed-date="2011-11-06T07:59:20.216095Z"/>
+<entry
+   name="testDeclare2.py"
+   checksum="42d202459d0b6c1499973f7af13219db"
+   last-author="cs164-bn"
+   text-time="2011-11-07T01:34:49.000000Z"
+   committed-rev="5291"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare3.py"
+   checksum="b2e13d769de7bb09ef5fd428c3d76247"
+   last-author="cs164-bn"
+   text-time="2011-11-07T01:34:49.000000Z"
+   committed-rev="5291"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare4.py"
+   checksum="ccd20a5d0ddb5dcdc5d6c01d24e03d2f"
+   last-author="cs164-bn"
+   committed-rev="5291"
+   text-time="2011-11-07T01:34:49.000000Z"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="testDeclare5.py"
+   checksum="825aa8ecdd371e9b8f35013ce59b46fc"
+   last-author="cs164-bn"
+   committed-rev="5291"
+   text-time="2011-11-07T01:34:49.000000Z"
+   kind="file"
+   committed-date="2011-11-07T01:34:49.926568Z"/>
+<entry
+   name="triviallybad.py"
+   checksum="6ceec5a323aa595b3df882e18404235f"
+   last-author="hilfingr"
+   text-time="2011-10-22T02:08:42.000000Z"
+   committed-rev="4270"
+   kind="file"
+   committed-date="2011-10-22T02:08:42.334864Z"/>
+</wc-entries>

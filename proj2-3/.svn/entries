@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://isvn.eecs.berkeley.edu/cs164"
+   revision="6919"
+   last-author="cs164-cr"
+   url="https://isvn.eecs.berkeley.edu/cs164/NomNom/trunk/proj2"
+   uuid="763b8346-57dc-41bb-c1a4-ad677011de15"
+   committed-rev="6915"
+   kind="dir"
+   committed-date="2011-11-11T20:41:00.397655Z"/>
+<entry
+   name="Makefile"
+   checksum="33d5fb1c585cb8b4ef50f829b29e94b3"
+   last-author="hilfingr"
+   text-time="2011-10-30T23:12:21.000000Z"
+   committed-rev="4412"
+   kind="file"
+   committed-date="2011-10-30T23:12:21.735629Z"/>
+<entry
+   name="README"
+   checksum="dc3956ee9e3ef99f153262dc3001bc98"
+   last-author="hilfingr"
+   text-time="2011-10-22T02:08:42.000000Z"
+   committed-rev="4270"
+   kind="file"
+   committed-date="2011-10-22T02:08:42.334864Z"/>
+<entry
+   name="apyc.cc"
+   checksum="fe9889c827ac787876e095840826e1cc"
+   last-author="cs164-bz"
+   text-time="2011-11-11T01:42:01.000000Z"
+   committed-rev="5604"
+   kind="file"
+   committed-date="2011-11-08T09:15:50.802776Z"/>
+<entry
+   name="apyc.h"
+   checksum="0616643cca3eee720e5ab30db9474d9d"
+   last-author="cs164-bz"
+   committed-rev="6327"
+   text-time="2011-11-10T07:31:19.000000Z"
+   kind="file"
+   committed-date="2011-11-10T08:48:52.416000Z"/>
+<entry
+   name="apyc.hn"
+   checksum="5f259f8eec391d5bf06982a1994b41ff"
+   last-author="cs164-bn"
+   text-time="2011-11-09T06:54:33.000000Z"
+   committed-rev="5800"
+   kind="file"
+   committed-date="2011-11-09T06:54:33.770593Z"/>
+<entry
+   name="ast.cc"
+   revision="6920"
+   checksum="6e22267bf2e31b5fe6ec2668799c156a"
+   last-author="cs164-cr"
+   committed-rev="6915"
+   text-time="2011-11-11T20:41:00.397655Z"
+   kind="file"
+   committed-date="2011-11-11T20:41:00.397655Z"/>
+<entry
+   name="ast.h"
+   checksum="1bfa9f92a6351193e3014c0362f6b77a"
+   last-author="cs164-cr"
+   committed-rev="6913"
+   text-time="2011-11-11T20:35:18.000000Z"
+   kind="file"
+   committed-date="2011-11-11T20:35:18.234869Z"/>
+<entry
+   name="decls.cc"
+   checksum="adf42fafba9c69c3e9b68edea5bbc578"
+   last-author="cs164-bz"
+   committed-rev="6760"
+   text-time="2011-11-11T09:46:21.000000Z"
+   kind="file"
+   committed-date="2011-11-11T09:47:17.400000Z"/>
+<entry
+   name="environ.cc"
+   checksum="2bfdfb66fec97b8f7ab4fb22812c9b85"
+   last-author="hilfingr"
+   text-time="2011-10-22T02:08:42.000000Z"
+   committed-rev="4270"
+   kind="file"
+   committed-date="2011-10-22T02:08:42.334864Z"/>
+<entry
+   name="exprs.cc"
+   checksum="922d7752b8def587dbc801c2b1c3c36a"
+   last-author="cs164-cp"
+   text-time="2011-11-08T06:43:24.000000Z"
+   committed-rev="5543"
+   kind="file"
+   committed-date="2011-11-08T06:43:24.914951Z"/>
+<entry
+   name="horn"
+   kind="dir"/>
+<entry
+   name="horn-common.h"
+   checksum="53e9dc0f1877b105aba48a454a37a3b8"
+   last-author="cs164-cp"
+   text-time="2011-11-02T23:32:16.000000Z"
+   committed-rev="4671"
+   kind="file"
+   committed-date="2011-11-02T23:32:16.130573Z"/>
+<entry
+   name="horn-parse-lex.cc"
+   checksum="f3224dcdabf804c02670abca343e8271"
+   last-author="cs164-cp"
+   text-time="2011-11-02T23:32:16.000000Z"
+   committed-rev="4671"
+   kind="file"
+   committed-date="2011-11-02T23:32:16.130573Z"/>
+<entry
+   name="melviniswin.py"
+   checksum="cf50144e034828c793286536f7340172"
+   last-author="cs164-bn"
+   text-time="2011-11-11T01:39:02.000000Z"
+   committed-rev="6488"
+   kind="file"
+   committed-date="2011-11-11T01:39:02.167224Z"/>
+<entry
+   name="melviniswrong.py"
+   checksum="12e899363c7ad3a011fd5ac840f1f274"
+   last-author="cs164-cr"
+   text-time="2011-11-11T07:50:17.000000Z"
+   committed-rev="6686"
+   kind="file"
+   committed-date="2011-11-11T07:50:17.467114Z"/>
+<entry
+   name="modules.cc"
+   checksum="0a653f2a30c16ae9aab3df5d60b6fc22"
+   last-author="cs164-cr"
+   text-time="2011-11-11T09:44:01.000000Z"
+   committed-rev="6756"
+   kind="file"
+   committed-date="2011-11-11T09:44:01.203909Z"/>
+<entry
+   name="src"
+   kind="dir"/>
+<entry
+   name="staff-version"
+   checksum="62e6f8341671bc56c4393107aed84313"
+   last-author="hilfingr"
+   text-time="2011-11-02T02:14:57.000000Z"
+   committed-rev="4583"
+   kind="file"
+   committed-date="2011-11-02T02:14:57.565600Z"/>
+<entry
+   name="stmts.cc"
+   checksum="5f7e29dbff06bb915be61e747e6a8b0e"
+   last-author="cs164-cp"
+   text-time="2011-11-08T06:43:24.000000Z"
+   committed-rev="5543"
+   kind="file"
+   committed-date="2011-11-08T06:43:24.914951Z"/>
+<entry
+   name="tests"
+   kind="dir"/>
+<entry
+   name="tokens.cc"
+   checksum="23787688b3f1ee25c7419a3077c69445"
+   last-author="cs164-cr"
+   text-time="2011-11-11T13:59:32.000000Z"
+   committed-rev="6840"
+   kind="file"
+   committed-date="2011-11-11T13:59:32.415438Z"/>
+<entry
+   name="types.cc"
+   checksum="19410f7ef41056c1e87f390e68a0478d"
+   last-author="cs164-cp"
+   text-time="2011-11-11T10:45:13.000000Z"
+   committed-rev="6788"
+   kind="file"
+   committed-date="2011-11-11T10:45:13.435388Z"/>
+</wc-entries>

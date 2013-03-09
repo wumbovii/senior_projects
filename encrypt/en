@@ -1,0 +1,14 @@
+def xor(a, b):
+        a = hex(int(a, 16))
+        b = hex(int(b, 16))
+        print bin(a^b)
+
+def __main__():
+        print xor(argv[1], arv[2])
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                
